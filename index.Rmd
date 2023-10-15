@@ -101,7 +101,7 @@ Do you want to install from sources the package which needs
 compilation? (Yes/no/cancel)
 ```
 
-type `Yes` in the console and press the return key. This might seem tricky forst time, but it will soon become second nature.
+type `Yes` in the console and press the return key. This might seem tricky first time, but installing packages will soon become second nature.
 
 # Monday 
 
@@ -119,11 +119,11 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [`notebook.R`](Contents/Part A - Introduction/notebook.R){target="_blank"}
     - [`markdown.Rmd`](Contents/Part A - Introduction/markdown.Rmd){target="_blank"}
 
-<!-- - Part B: Datatypes and Syntax -->
-<!--     - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"} -->
-<!--     - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"} -->
-<!--     - [Practical B - With walkthrough](Contents/Material/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"} -->
-<!--     - [boys.RData](Contents/Material/Part B - How is R organized/boys.RData){target="_blank"} -->
+- Part B: Datatypes and Syntax
+    - [Lecture B](Contents/Part B - How is R organized/Lecture_B.html){target="_blank"}
+    - [Practical B](Contents/Part B - How is R organized/Practical_B.html){target="_blank"}
+    - [Practical B (walkthrough)](Contents/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"}
+    - [boys.RData](Contents/Part B - How is R organized/boys.RData){target="_blank"}
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
