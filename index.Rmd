@@ -109,21 +109,21 @@ type `Yes` in the console and press the return key. This might seem tricky forst
 
 ### Monday's materials
 
-We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
+We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, I advice all course participants to access the materials online at (https://peterstoltze.github.io/R_BiH_2023/).
 
 Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
 
 - Part A: Introduction
-    - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"}
-    - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
-    - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
-    - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
+    - [Lecture A](Contents/Part A - Introduction/Lecture_A.html){target="_blank"}
+    - [Practical A](Contents/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
+    - [`notebook.R`](Contents/Part A - Introduction/notebook.R){target="_blank"}
+    - [`markdown.Rmd`](Contents/Part A - Introduction/markdown.Rmd){target="_blank"}
 
-- Part B: Datatypes and Syntax
-    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
-    - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
-    - [Practical B - With walkthrough](Contents/Material/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"}
-    - [boys.RData](Contents/Material/Part B - How is R organized/boys.RData){target="_blank"}
+<!-- - Part B: Datatypes and Syntax -->
+<!--     - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"} -->
+<!--     - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"} -->
+<!--     - [Practical B - With walkthrough](Contents/Material/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"} -->
+<!--     - [boys.RData](Contents/Material/Part B - How is R organized/boys.RData){target="_blank"} -->
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
@@ -194,4 +194,6 @@ The following references are currently available for free, either as pdfs or as 
 - [Happy Git and GitHub for the useR ](https://happygitwithr.com/index.html): a great introduction to version control using Git and GitHub together with RStudio. Written by Jenny Bryan in a very concise style. Highly recommended!
  - [Rmarkdown](https://bookdown.org/yihui/rmarkdown/): A very thorough look at RMarkdown. No need to read everything, but if there is a subject you struggle with, take a look at the index.
  - [ggplot2 - The book](https://ggplot2-book.org/): The ultimate guide to `ggplot` written by Hadley Wickham who is also the author to the package. It is quite long, but if you want to truely understand it, this is the place to start.
- - [Awesome official statistics software](https://github.com/SNStatComp/awesome-official-statistics-software) A great resource for official statistics
+
+
+I also recommend looking at [Awesome official statistics software](https://github.com/SNStatComp/awesome-official-statistics-software), which guides you to great resource for official statistics organised by GSBPM.
