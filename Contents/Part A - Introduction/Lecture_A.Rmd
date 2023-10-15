@@ -4,6 +4,7 @@ author: "Statistical Programming with R"
 date: ""
 output:
   ioslides_presentation:
+    css: "custom.css"
     fig_height: 5
     fig_width: 8
     logo: logo_en.png
