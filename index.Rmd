@@ -8,7 +8,7 @@ output:
 
 # Intro {.sidebar}
 
-This dashboard covers the materials for the course introducing R. Course held in Banja Luka, October 16 - 18, 2023.
+This dashboard covers the materials for the course introducing R to be held in Banja Luka, October 16 - 18, 2023.
 
 ---
 
@@ -28,10 +28,11 @@ Material adopted from [Gerko Vink](https://github.com/gerkovink/R) and Statistic
 ## Column 1
 
 ### Outline
-R is rapidly becoming the standard platform for data manipulation, visualization and analysis and has a number of advantages over other statistical software packages. A wide community of users contribute to R, resulting in an enormous coverage of statistical procedures, including many that are not available in any other statistical program. Furthermore, it is highly flexible for programming and scripting purposes, for example when manipulating data or creating professional plots. However, R lacks standard GUI menus, as in SPSS for example, from which to choose what statistical test to perform or which graph to create. As a consequence, R is more challenging to master. Therefore, this course offers an introduction to statistical programming in R. Students learn to operate R and do advanced statistical programming and data manipulation. 
+R is a popular platform for manipulation, visualization and analysis of data and has a number of advantages over other statistical software packages. A wide community of users (including methodologists within official statistics) contribute to R, resulting in an enormous coverage of statistical procedures, including many that are not available in any other statistical program. Furthermore, it is highly flexible for programming and scripting purposes, for example when manipulating data or creating professional plots.
 
+However, R lacks standard GUI menus, as in SPSS for example, from which to choose what statistical test to perform or which graph to create. As a consequence, R is initially more challenging to master. This course offers an introduction to statistical programming in R, that you can built upon after the course. 
 
-The course starts at a very basic level and builds up gradually. No previous experience with R is required.
+The course starts at a very basic level and builds up gradually. No previous experience with R is required. It is very important to realize, that you will not become a master R programmer in three days, but you will get the tools to start your journey. As with every other endavor, training is the key. Luckily, experience tells us that you will relatively quick become proficient with R.  
 
 ## Column 2
 
@@ -69,15 +70,15 @@ The below steps guide you through installing both `R` as well as the necessary a
 Bring a computer to the course and make sure that you have full write access and administrator rights to the machine. We will explore programming and compiling in this course. This means that you need full access to your machine. Some corporate laptops come with limited access for their users, we therefore advice you to bring a personal laptop computer, if you have one. 
 
 ### **1. Install `R`**
-`R` can be obtained [here](https://cran.r-project.org). We won't use `R` directly in the course, but rather call `R` through `RStudio`. Therefore it needs to be installed. 
+`R` can be obtained [here](https://cran.r-project.org). We won't use `R` directly in the course, but rather call `R` through `RStudio`. Therefore it needs to be installed. If you are on a Windows machine, choose Windows and then "*Binaries for base distribution. This is what you want to install R for the first time*". Follow the instructions and accept default settings. 
 
 ### **2. Install `RStudio` Desktop**
 
-Rstudio is an Integrated Development Environment (IDE). It can be obtained as stand-alone software [here](https://www.posit.co/downloads/). The free and open source `RStudio Desktop` version is sufficient.
+Rstudio is an Integrated Development Environment (IDE). It can be obtained as stand-alone software [here](https://www.posit.co/downloads/). The free and open source `RStudio Desktop` version is sufficient. Again, follow the instructions and accept default settings.
 
 ### **3. Start RStudio and install the following packages. **
 
-Execute the following lines of code in the console window:
+For this course we will need a number of *packages*. Execute the following lines of code in the console window:
 
 ```{r eval=FALSE, echo = TRUE}
 install.packages(c("tidyverse", "knitr", "rmarkdown", "haven",
@@ -100,7 +101,7 @@ Do you want to install from sources the package which needs
 compilation? (Yes/no/cancel)
 ```
 
-type `Yes` in the console and press the return key. 
+type `Yes` in the console and press the return key. This might seem tricky forst time, but it will soon become second nature.
 
 # Monday 
 
@@ -193,3 +194,4 @@ The following references are currently available for free, either as pdfs or as 
 - [Happy Git and GitHub for the useR ](https://happygitwithr.com/index.html): a great introduction to version control using Git and GitHub together with RStudio. Written by Jenny Bryan in a very concise style. Highly recommended!
  - [Rmarkdown](https://bookdown.org/yihui/rmarkdown/): A very thorough look at RMarkdown. No need to read everything, but if there is a subject you struggle with, take a look at the index.
  - [ggplot2 - The book](https://ggplot2-book.org/): The ultimate guide to `ggplot` written by Hadley Wickham who is also the author to the package. It is quite long, but if you want to truely understand it, this is the place to start.
+ - [Awesome official statistics software](https://github.com/SNStatComp/awesome-official-statistics-software) A great resource for official statistics
