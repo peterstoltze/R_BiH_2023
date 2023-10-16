@@ -40,7 +40,7 @@ In this practical we are going to play around with the different types of elemen
 
 ---
 
-8. **Select 1) the third row, 2) the second column and 3) the intersection of these two in the dataframe `dat3` that you have created in Question 4. **
+8. **Select 1) the third row, 2) the second column and 3) the intersection of these two in the dataframe `dat3` that you have created in Question 5. **
 
 ---
 

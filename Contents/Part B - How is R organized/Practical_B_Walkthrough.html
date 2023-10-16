@@ -409,7 +409,9 @@ numerical?</strong></li>
 matrix.</strong></li>
 </ol>
 <pre class="r"><code>mat3 &lt;- matrix(c(vec1, vec2), 6, 2)
-mat3</code></pre>
+is.matrix(mat3)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>mat3</code></pre>
 <pre><code>##      [,1] [,2]
 ## [1,] &quot;1&quot;  &quot;A&quot; 
 ## [2,] &quot;2&quot;  &quot;B&quot; 
@@ -467,7 +469,16 @@ columns <code>V1</code> and <code>V2</code>, respectively. Use function
 </ol>
 <p>This is a tricky situation. At face value, everything may seem to be
 in order. But, be aware that the code</p>
-<pre class="r"><code>dat3b &lt;- as.data.frame(mat3)
+<pre class="r"><code>dat3b &lt;- as.data.frame(mat3b)
+dat3b</code></pre>
+<pre><code>##   vec1 vec2
+## 1    1    A
+## 2    2    B
+## 3    3    C
+## 4    4    D
+## 5    5    E
+## 6    6    F</code></pre>
+<pre class="r"><code>names(dat3b) &lt;- c(&quot;V1&quot;, &quot;V2&quot;)
 dat3b</code></pre>
 <pre><code>##   V1 V2
 ## 1  1  A
@@ -492,23 +503,23 @@ and Question 6 are indeed numeric. If not, determine what they are.
 <pre class="r"><code>is.numeric(dat3b[, 1])</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>The first column in matrix <code>dat3b</code> obtained from Question
-5 is indeed not numeric. As a matter of fact, it is also not a character
-variable.</p>
-<pre class="r"><code>is.character(dat3b[, 1])</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<p>Rather tricky; the function <code>as.data.frame()</code> has
-converted the first variable to a factor.</p>
-<pre class="r"><code>is.factor(dat3b[, 1])</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<p>This is due to us not specifying the variable correctly in the matrix
-we used to create the dataframe. Factors are categorical variables that
-are depicted by numbers. Character vectors are converted to factors in
-data frames.</p>
+5 is indeed not numeric. Instead of asking “Is object <em>X</em> of type
+<em>Y</em>?” we simply ask <code>R</code> to report the type of the
+object of interest:</p>
+<pre class="r"><code>typeof(dat3b[,1])</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Previous versions of these practicals had to deal with factors at
+this point, since there was an implicit
+<code>stringsAsFactors=TRUE</code> in for example the
+<code>as.matrix</code> function. For good reasons, the behavior of
+<code>R</code> in this regards has changed. (If you are interested, see
+the following <a href="https://blog.r-project.org/2020/02/16/stringsasfactors/">blogpost</a>
+by Kurt Hornik.)</p>
 <hr />
 <ol start="8" style="list-style-type: decimal">
 <li><strong>Select 1) the third row, 2) the second column and 3) the
 intersection of these two in the dataframe <code>dat3</code> that you
-have created in Question 4. </strong></li>
+have created in Question 5. </strong></li>
 </ol>
 <pre class="r"><code>dat3[3, ] #3rd row</code></pre>
 <pre><code>##   V1 V2
@@ -519,19 +530,16 @@ have created in Question 4. </strong></li>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
 <pre class="r"><code>dat3[3,2] #intersection</code></pre>
 <pre><code>## [1] &quot;C&quot;</code></pre>
-<p>The <code>[3,2]</code> index is very useful in ‘R’. The first number
-(before the comma) represents the row and the second number (after the
-comma) represents the column. For a vector there are no two dimensions
-and only one dimension can be called. For example, <code>vec1[3]</code>
-would yield <code>3</code>. Try it.</p>
+<p>The <code>[3,2]</code> index is very useful. The first number (before
+the comma) represents the row and the second number (after the comma)
+represents the column. For a vector there are no two dimensions and only
+one dimension can be called. For example, <code>vec1[3]</code> would
+yield <code>3</code>. Try it.</p>
 <p>Columns can also be called by the <code>$</code> sign, but only if a
 name has been assigned. With dataframes assigning names happens
 automatically.</p>
-<p>Note that <code>R</code> automatically reports the values the
-character column can take. This means that the column is indeed a factor
-(a categorical variable - as it is supposed to be). A useful function to
-inspect the structure of a dataframe is <code>str()</code>. Try running
-it.</p>
+<p>A useful function to inspect the structure of a dataframe is
+<code>str()</code>. Try running it.</p>
 <pre class="r"><code>str(dat3)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
 ##  $ V1: num  1 2 3 4 5 6
@@ -540,7 +548,8 @@ it.</p>
 imported your data from some other source. If we, at a later stage,
 start analyzing our data without the correct measurement level, we may
 run into problems. One problem that often occurs is that categorical
-variables (factors in <code>R</code>) are not coded as such.</p>
+variables (factors in <code>R</code>) are not coded as such (or the
+reverse).</p>
 <hr />
 <ol start="9" style="list-style-type: decimal">
 <li><strong>Imagine that the first variable <code>V1</code> in our
@@ -550,8 +559,7 @@ factor and add the labels Utrecht, New York, London, Singapore, Rome and
 Cape Town.</strong></li>
 </ol>
 <pre class="r"><code>dat3$V1 &lt;- factor(dat3$V1,
-                  levels = dat3$V1,
-                  labels = c(&quot;Utrecht&quot;, &quot;New York&quot;, &quot;London&quot;, &quot;Singapore&quot;, &quot;Rome&quot;, &quot;Capetown&quot;))
+                  labels = c(&quot;Utrecht&quot;, &quot;New York&quot;, &quot;London&quot;, &quot;Singapore&quot;, &quot;Rome&quot;, &quot;Cape Town&quot;))
 dat3</code></pre>
 <pre><code>##          V1 V2
 ## 1   Utrecht  A
@@ -559,25 +567,30 @@ dat3</code></pre>
 ## 3    London  C
 ## 4 Singapore  D
 ## 5      Rome  E
-## 6  Capetown  F</code></pre>
+## 6 Cape Town  F</code></pre>
+<p>Rerunning the <code>str</code> function confirms that we now have
+converted the data in the first column to factors:</p>
+<pre class="r"><code>str(dat3)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
+##  $ V1: Factor w/ 6 levels &quot;Utrecht&quot;,&quot;New York&quot;,..: 1 2 3 4 5 6
+##  $ V2: chr  &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...</code></pre>
+<p>Note that this conversion was rather lazy, and that the
+<code>factor</code> function offers more controls if needed.</p>
 <hr />
 <ol start="10" style="list-style-type: decimal">
 <li><strong>Open the dataset <code>boys.RData</code>. You need to
 download this file and put it in the project folder.</strong></li>
 </ol>
-<p>Either run the below code</p>
+<p>If you have organized your code in a project the
+<code>boys.RData</code> file will be visible in the Files-panel, where
+you can just click on it and confirm, that you want to load the data
+file into your global environment. However, the preferred way is
+(almost) always to do this using code:</p>
 <pre class="r"><code>load(&quot;boys.RData&quot;)</code></pre>
-<p>or double-click the <code>boys.RData</code> file on your machine
-(right-click and <code>open with RStudio</code> if it does not open by
-default in <code>RStudio</code>, but in <code>R</code>).</p>
-<!-- You can also import it directly from the internet by running and loading the below code connection -->
-<!-- ```{r} -->
-<!-- con <- url("https://gerkovink.github.io/Statistical-Programming-with-R/Contents/Material/Part%20B%20-%20How%20is%20R%20organized/boys.RData") -->
-<!-- load(con) -->
-<!-- ``` -->
-<p>The <code>boys</code> object will be added to your Global
-Environment. You can now use the <code>boys</code> data by running</p>
-<pre class="r"><code>boys</code></pre>
+<p>Yet another option is to double-click the <code>boys.RData</code>
+file on your machine, eg. in the Windows Explorer (right-click and
+<code>open with RStudio</code> if it does not open by default in
+<code>RStudio</code>, but in <code>R</code>).</p>
 <hr />
 <ol start="11" style="list-style-type: decimal">
 <li><strong>Most packages have datasets included. Since we have not
@@ -589,10 +602,10 @@ console, and subsequently by using the function <code>View()</code>.
 documentation by typing <code>?mice::boys</code></li>
 </ol>
 <p>The output is not displayed here as it is simply too large.</p>
-<p>Using <code>View()</code> is preferred for inspecting datasets that
-are large. <code>View()</code> opens the dataset in a spreadsheet-like
-window (conform MS Excel, or SPSS). If you <code>View()</code> your own
-datasets, you can not edit the datasets’ contents.</p>
+<p>Using <code>View()</code> is well suited for inspecting datasets that
+are large (but bot huge). <code>View()</code> opens the dataset in a
+spreadsheet-like window (like Excel), but you cannot edit the
+content.</p>
 <hr />
 <ol start="12" style="list-style-type: decimal">
 <li><strong>Find out the dimensions of the <code>boys</code> data set
@@ -604,24 +617,22 @@ dataset are.</p>
 <pre><code>## [1] 748   9</code></pre>
 <p>There are 748 cases on 9 variables. To select the first and last six
 cases, use</p>
-<pre class="r"><code>boys[1:6, ]</code></pre>
-<pre><code>##      age  hgt   wgt   bmi   hc  gen  phb tv   reg
-## 3  0.035 50.1 3.650 14.54 33.7 &lt;NA&gt; &lt;NA&gt; NA south
-## 4  0.038 53.5 3.370 11.77 35.0 &lt;NA&gt; &lt;NA&gt; NA south
-## 18 0.057 50.0 3.140 12.56 35.2 &lt;NA&gt; &lt;NA&gt; NA south
-## 23 0.060 54.5 4.270 14.37 36.7 &lt;NA&gt; &lt;NA&gt; NA south
-## 28 0.062 57.5 5.030 15.21 37.3 &lt;NA&gt; &lt;NA&gt; NA south
-## 36 0.068 55.5 4.655 15.11 37.0 &lt;NA&gt; &lt;NA&gt; NA south</code></pre>
-<pre class="r"><code>boys[743:748, ]</code></pre>
-<pre><code>##         age   hgt  wgt   bmi   hc  gen  phb tv   reg
-## 7410 20.372 188.7 59.8 16.79 55.2 &lt;NA&gt; &lt;NA&gt; NA  west
-## 7418 20.429 181.1 67.2 20.48 56.6 &lt;NA&gt; &lt;NA&gt; NA north
-## 7444 20.761 189.1 88.0 24.60   NA &lt;NA&gt; &lt;NA&gt; NA  west
-## 7447 20.780 193.5 75.4 20.13   NA &lt;NA&gt; &lt;NA&gt; NA  west
-## 7451 20.813 189.0 78.0 21.83 59.9 &lt;NA&gt; &lt;NA&gt; NA north
-## 7475 21.177 181.8 76.5 23.14   NA &lt;NA&gt; &lt;NA&gt; NA  east</code></pre>
+<pre class="r"><code>boys[c(1:6,743:748), ]</code></pre>
+<pre><code>##         age   hgt    wgt   bmi   hc  gen  phb tv   reg
+## 3     0.035  50.1  3.650 14.54 33.7 &lt;NA&gt; &lt;NA&gt; NA south
+## 4     0.038  53.5  3.370 11.77 35.0 &lt;NA&gt; &lt;NA&gt; NA south
+## 18    0.057  50.0  3.140 12.56 35.2 &lt;NA&gt; &lt;NA&gt; NA south
+## 23    0.060  54.5  4.270 14.37 36.7 &lt;NA&gt; &lt;NA&gt; NA south
+## 28    0.062  57.5  5.030 15.21 37.3 &lt;NA&gt; &lt;NA&gt; NA south
+## 36    0.068  55.5  4.655 15.11 37.0 &lt;NA&gt; &lt;NA&gt; NA south
+## 7410 20.372 188.7 59.800 16.79 55.2 &lt;NA&gt; &lt;NA&gt; NA  west
+## 7418 20.429 181.1 67.200 20.48 56.6 &lt;NA&gt; &lt;NA&gt; NA north
+## 7444 20.761 189.1 88.000 24.60   NA &lt;NA&gt; &lt;NA&gt; NA  west
+## 7447 20.780 193.5 75.400 20.13   NA &lt;NA&gt; &lt;NA&gt; NA  west
+## 7451 20.813 189.0 78.000 21.83 59.9 &lt;NA&gt; &lt;NA&gt; NA north
+## 7475 21.177 181.8 76.500 23.14   NA &lt;NA&gt; &lt;NA&gt; NA  east</code></pre>
 <p>or, more efficiently:</p>
-<pre class="r"><code>head(boys)</code></pre>
+<pre class="r"><code>head(boys, n=6)</code></pre>
 <pre><code>##      age  hgt   wgt   bmi   hc  gen  phb tv   reg
 ## 3  0.035 50.1 3.650 14.54 33.7 &lt;NA&gt; &lt;NA&gt; NA south
 ## 4  0.038 53.5 3.370 11.77 35.0 &lt;NA&gt; &lt;NA&gt; NA south
@@ -650,13 +661,13 @@ observe that the data are very likely sorted based on
 command to test the complement of that statement. Remember that we can
 always search the help for functions: e.g. we could have searched here
 for <code>?sort</code> and we would quickly have ended up at function
-<code>is.unsorted()</code> as it tests whether an object is <strong>not
-sorted</strong>.</p>
+<code>is.unsorted()</code> which tests whether an object is not
+sorted</p>
 <pre class="r"><code>is.unsorted(boys$age)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<p>which returns <code>FALSE</code>, indicating that boys’ age is indeed
-sorted (we asked if it was unsorted!). To directly test if it is sorted,
-we could have used</p>
+<p>which returns <code>FALSE</code>, indicating that boys’ age is not
+unsorted, which is the same as saying that it <em>is</em> sorted (double
+negative). To directly test if it is sorted, we could have used</p>
 <pre class="r"><code>!is.unsorted(boys$age)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p>which tests if data data are not unsorted. In other words the values
@@ -684,7 +695,7 @@ Tip: make use of the help (?) and help search (??) functionality in
 ##  $ phb: Ord.factor w/ 6 levels &quot;P1&quot;&lt;&quot;P2&quot;&lt;&quot;P3&quot;&lt;..: NA NA NA NA NA NA NA NA NA NA ...
 ##  $ tv : int  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ reg: Factor w/ 5 levels &quot;north&quot;,&quot;east&quot;,..: 4 4 4 4 4 4 4 3 3 2 ...</code></pre>
-<pre class="r"><code>summary(boys) #summary info</code></pre>
+<pre class="r"><code>summary(boys) # summary info</code></pre>
 <pre><code>##       age              hgt              wgt              bmi       
 ##  Min.   : 0.035   Min.   : 50.00   Min.   :  3.14   Min.   :11.77  
 ##  1st Qu.: 1.581   1st Qu.: 84.88   1st Qu.: 11.70   1st Qu.:15.90  
@@ -701,13 +712,15 @@ Tip: make use of the help (?) and help search (??) functionality in
 ##  3rd Qu.:56.00   G5  : 75   P5  : 50   3rd Qu.:20.00   city : 73  
 ##  Max.   :65.00   NA&#39;s:503   P6  : 41   Max.   :25.00   NA&#39;s :  3  
 ##  NA&#39;s   :46                 NA&#39;s:503   NA&#39;s   :522</code></pre>
-<pre class="r"><code>sd(boys$age) #standard deviation for age</code></pre>
+<pre class="r"><code>sd(boys$age)  # standard deviation for age</code></pre>
 <pre><code>## [1] 6.894052</code></pre>
-<pre class="r"><code>sd(boys$bmi, na.rm = TRUE) #standard deviation for bmi</code></pre>
+<pre class="r"><code>sd(boys$bmi)  # standard deviation for bmi</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>sd(boys$bmi, na.rm = TRUE) # standard deviation for bmi (observed cases)</code></pre>
 <pre><code>## [1] 3.053421</code></pre>
 <p>Note that <code>bmi</code> contains 21 missing values, e.g. by
 looking at the summary information. Therefor we need to use
-<code>na.rm = T</code> to calculate the standard deviation on the
+<code>na.rm = TRUE</code> to calculate the standard deviation on the
 observed cases only.</p>
 <hr />
 <ol start="15" style="list-style-type: decimal">
@@ -716,7 +729,7 @@ there?</strong></li>
 </ol>
 <p>The logical operators (TRUE vs FALSE) are a very powerful tool in
 <code>R</code>. For example, we can just select the rows (respondents)
-in the data that are older than 20 by putting the logical operater
+in the data that are older than 20 by putting the logical operator
 within the row index of the dataset:</p>
 <pre class="r"><code>boys2 &lt;- boys[boys$age &gt;= 20, ]
 nrow(boys2)</code></pre>
@@ -724,6 +737,24 @@ nrow(boys2)</code></pre>
 <p>or, alternatively,</p>
 <pre class="r"><code>boys2.1 &lt;- subset(boys, age &gt;= 20)
 nrow(boys2.1)</code></pre>
+<pre><code>## [1] 12</code></pre>
+<p>To understand the first construction, we can do this in steps by
+constructing a logical vector <code>a</code>:</p>
+<pre class="r"><code>a &lt;- boys$age &gt;= 20
+tail(a, n=100)</code></pre>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [85] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [97]  TRUE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code>sum(a)</code></pre>
+<pre><code>## [1] 12</code></pre>
+<pre class="r"><code>boys_20 &lt;- boys[a,]
+nrow(boys_20)</code></pre>
 <pre><code>## [1] 12</code></pre>
 <hr />
 <ol start="16" style="list-style-type: decimal">
@@ -747,24 +778,9 @@ that do not live in region <code>north</code>?</strong></li>
 <p>or, alternatively,</p>
 <pre class="r"><code>mean(subset(boys, age &lt; 15 &amp; reg != &quot;north&quot;)$age, na.rm=TRUE)</code></pre>
 <pre><code>## [1] 6.044461</code></pre>
-<p>The mean age is 6.0444609 years</p>
+<p>The mean age is 6.04 years.</p>
 <hr />
-<p>Today we have learned to use <code>R</code> at its basics. This
-offers tremendous flexibility, but may also be inefficient when our aim
-is some complex analysis, data operation of data manipulation. Doing
-advanced operations in basic <code>R</code> may require lots and lots of
-code. Tomorrow we will start using packages that allow us to do
-complicated operations with just a few lines of code.</p>
-<p>As you start using <code>R</code> in your own research, you will find
-yourself in need of packages that are not part of the default
-<code>R</code> installation. The beauty of <code>R</code> is that its
-functionality is community-driven. People can add packages to
-<code>CRAN</code> that other people can use and improve. Chances are
-that a function and/or package has been already developed for the
-analysis or operation you plan to carry out. If not, you are of course
-welcome to fill the gap by submitting your own package.</p>
-<hr />
-<p>End of practical</p>
+<p>End of practical B.</p>
 </div>
 
 
