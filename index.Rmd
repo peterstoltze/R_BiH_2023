@@ -126,11 +126,11 @@ Lecture presentation and exercises will be made available here. Download the fil
         - [`markdown.Rmd`](Contents/Part A - Introduction/markdown.Rmd){target="_blank"}
 
 - Part B: Datatypes and Syntax
-    - [Lecture B](Contents/Part B - How is R organized/Lecture_B.html){target="_blank"}
-    - [Practical B](Contents/Part B - How is R organized/Practical_B.html){target="_blank"}
+    - [Lecture B](Contents/Part B - Datatypes/Lecture_B.html){target="_blank"}
+    - [Practical B](Contents/Part B - Datatypes/Practical_B.html){target="_blank"}
     - Files for Practical B:
-        - [`boys.RData`](Contents/Part B - How is R organized/boys.RData){target="_blank"}
-        - [Practical B (walkthrough)](Contents/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"}
+        - [`boys.RData`](Contents/Part B - Datatypes/boys.RData){target="_blank"}
+        - [Practical B (walkthrough)](Contents/Part B - Datatypes/Practical_B_Walkthrough.html){target="_blank"}
     
 Lectures and practicals are in `html` format and open in a new browser pane. For some practicals there are supplementary files, that you should download and store in a folder on your own computer. Sometimes the supplementary material includes a walkthrough (solution) to the exercise, but try to solve the practical by yourself first.
 
