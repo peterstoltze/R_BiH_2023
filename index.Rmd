@@ -37,6 +37,8 @@ However, R lacks standard GUI menus, as in SPSS for example, from which to choos
 
 The course starts at a very basic level and builds up gradually. No previous experience with R is required. It is very important to realize, that you will not become a master R programmer in three days, but you will get the tools to start your journey. As with every other endavor, training is the key. Luckily, experience tells us that you will relatively quick become proficient with R.  
 
+I hope we will have some productive days together :-)
+
 ## Column 2
 
 ### Course schedule 
