@@ -22,6 +22,7 @@ output:
     - How to find help
 - Now we will add a bit more building blocks
 
+
 ## Lecture B - Datatypes and syntax 
 
 - In this lecture we will look the following subjects:  
@@ -29,7 +30,7 @@ output:
   * Vectors, matrices, data frames, arrays, and lists
   * Logical operators
   * Factors
-  * Functions
+  <!-- * Functions -->
   * Missingness
 
 
@@ -403,7 +404,7 @@ fruits <- factor(c("Apple", "Potato"),
 fruits
 ```
 
-## Beware of factors - they are not what they seem!
+## Beware of factors - they are not alwyas what they seem!
 
 Consider a data frame A:
 
@@ -501,65 +502,66 @@ as.integer(A[2,1]) + as.integer(A[2,2])
 
 # Functions
 
-## Functions
- - A function is an object that takes an argument and returns a result (generally)
- - We used several functions already:
-   - `is.numeric`
-   - `as.character`
-   - `data.frame`
-   - `rnorm`
+<!-- ## Functions -->
+<!--  - A function is an object that takes an argument and returns a result (generally) -->
+<!--  - We used several functions already: -->
+<!--    - `is.numeric` -->
+<!--    - `as.character` -->
+<!--    - `data.frame` -->
+<!--    - `rnorm` -->
 
-## Functions
- - The generalized form of a function is:
-```{r eval = F}
-function(x, one_argument, another_argument)
-```
- - An example is:
-```{r}
-mean(c(1,2,3,4,5))
-```
- 
-## Functions
-  - To check the arguments of a function we use the help
-```{r echo = F, result = 'hide', message=F, warning=F}
-library(printr)
-```
-  
-```{r, eval = F}
-?mean
-```
+<!-- ## Functions -->
+<!--  - The generalized form of a function is: -->
+<!-- ```{r eval = F} -->
+<!-- function(x, one_argument, another_argument) -->
+<!-- ``` -->
+<!--  - An example is: -->
+<!-- ```{r} -->
+<!-- mean(c(1,2,3,4,5)) -->
+<!-- ``` -->
 
-## Functions
-```{r, echo = F}
-?mean
-```
+<!-- ## Functions -->
+<!--   - To check the arguments of a function we use the help -->
+<!-- ```{r echo = F, result = 'hide', message=F, warning=F} -->
+<!-- library(printr) -->
+<!-- ``` -->
 
-## Functions
-- Here we can see there is 3 arguments:
-  * `x`: An `R` object
-  * `trim = 0`: Number that removes a fraction before the mean is calculated
-  * `na.rm = FALSE`: Wether to remove `NA` from `x`.
-  * `...`: Placeholder for future arguments. Do not worry about this one.
+<!-- ```{r, eval = F} -->
+<!-- ?mean -->
+<!-- ``` -->
 
-- So what about our example from before?
-```{r, eval = FALSE}
-mean(c(1,2,3,4,5))
-```
- 
-## Functions
-- It is translated into
-```{r eval = FALSE}
-mean(x = c(1,2,3,4,5),
-     trim = 0,
-     na.rm = FALSE)
-```
-- Notice two things:
-  * We did not need to write `x=c(1,2,3,4,5)`. `R` assumes that the first
-    argument we provide corresponds to the first argument in the function. This
-    means that the order matter.
-  * The arguments that have default values do not need to be provided if we are
-    content with the defaults.
-  * ... And `?`/`help` is our friend!
+<!-- ## Functions -->
+
+<!-- ```{r, echo = F} -->
+<!-- ?mean -->
+<!-- ``` -->
+
+<!-- ## Functions -->
+<!-- - Here we can see there is 3 arguments: -->
+<!--   * `x`: An `R` object -->
+<!--   * `trim = 0`: Number that removes a fraction before the mean is calculated -->
+<!--   * `na.rm = FALSE`: Wether to remove `NA` from `x`. -->
+<!--   * `...`: Placeholder for future arguments. Do not worry about this one. -->
+
+<!-- - So what about our example from before? -->
+<!-- ```{r, eval = FALSE} -->
+<!-- mean(c(1,2,3,4,5)) -->
+<!-- ``` -->
+
+<!-- ## Functions -->
+<!-- - It is translated into -->
+<!-- ```{r eval = FALSE} -->
+<!-- mean(x = c(1,2,3,4,5), -->
+<!--      trim = 0, -->
+<!--      na.rm = FALSE) -->
+<!-- ``` -->
+<!-- - Notice two things: -->
+<!--   * We did not need to write `x=c(1,2,3,4,5)`. `R` assumes that the first -->
+<!--     argument we provide corresponds to the first argument in the function. This -->
+<!--     means that the order matter. -->
+<!--   * The arguments that have default values do not need to be provided if we are -->
+<!--     content with the defaults. -->
+<!--   * ... And `?`/`help` is our friend! -->
   
 # A few final notes
 
