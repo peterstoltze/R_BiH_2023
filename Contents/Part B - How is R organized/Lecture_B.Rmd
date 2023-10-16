@@ -45,6 +45,7 @@ set.seed(123)
   - Global Options...
   - Remove checkmark in "Restore .RData into workspace at startup"
   - Set the option "Save workspace to .RData on exit" to "Never"
+- This plays nicely together with "Restart R" (Ctrl + Shift + F10)
 
 ## But first...
 <center>
