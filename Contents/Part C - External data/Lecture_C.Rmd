@@ -251,6 +251,8 @@ boys_csv[1:5,]
 - CSV-files does not have the datatype `factor` and it is cast as `character`
 - Always inspect your data after importing!
 
+# Practical (tasks 1 - 6)
+
 # Databases
 ## Databases
 - Tabular data can be stored in relational databases such as
@@ -346,4 +348,4 @@ dbDisconnect(con)
 - A good place to start is [solutions.posit.co/connections/db/databases/](https://solutions.posit.co/connections/db/databases/)
 
 
-# Practical
+# Practical  (tasks 7 - 14)
