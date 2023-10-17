@@ -142,7 +142,7 @@ Lecture presentation and exercises will be made available here. Download the fil
 - Part C: Packages and reading external data
     - [Lecture C](Contents/Part C - External data/Lecture_C.html){target="_blank"}
     - [Practical C](Contents/Part C - External data/Practical_C.html){target="_blank"}
-    - [Extra database to read from](Contents/Part C - External data/files/daltons.sqlite) (store on your own computer)
+    - [Extra RSQLite database to read from](Contents/Part C - External data/files/daltons.sqlite) (store on your own computer)
     - [Practical C (solutions)](Contents/Part C - External data/Practical_C_sol.html){target="_blank"}
 
 - Part D: Data manipulation and tidyverse
