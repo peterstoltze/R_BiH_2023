@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE, rows.print=6)
 options(tibble.print_max = 6, tibble.print_min = 4)
 ```
 
-## Programme
+## Content
 
 - Pipe syntax
 - Data manipulation: 
@@ -113,10 +113,10 @@ new_data <- flights |>
 - `magrittr` contains a number of other pipes for specific uses that we won't touch upon here
 
 ## Pipe settings
-To be able to use Ctrl+Shift+m for producing `|>`, we need to tick the box 'Use native pipe operator' in Tools --> Global options --> Code
+To be able to use Ctrl+Shift+m for producing `|>`, we need to tick the box 'Use native pipe operator' in Tools $\rightarrow$ Global options $\rightarrow$ Code
 
 ```{r echo=F, out.width='55%', out.extra='style="float:center; padding:5px"'}
-knitr::include_graphics("figurer/native_pipe_option.png")
+knitr::include_graphics("figurer/native_pipe_option2.png")
 ```
 
 # Datamanipulation with dplyr
