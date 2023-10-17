@@ -50,7 +50,7 @@ In this exercise we will learn to use packages and write data to/from external s
 
 ---
 
-11. **Ask another group for the path to their database and open a connection to it. Use this connection to show the name of their table.**
+11. **Ask another group for the path to their database and open a connection to it. Use this connection to show the name of their table.** If this is not possible, download this extra database from the website [here](files/daltons.sqlite)
 
 ---
 
