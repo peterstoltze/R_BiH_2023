@@ -50,7 +50,7 @@ In this exercise we will learn to use packages and write data to/from external s
 
 ---
 
-11. **Ask another group for the path to their database and open a connection to it. Use this connection to show the name of their table.** If this is not possible, download this extra database from the website [here](files/daltons.sqlite)
+11. **Ask another group for the path to their database and open a connection to it. Use this connection to show the name of their table.** If this is not possible, download [this SQLite database](files/Group9_results.sqlite) from the website, which is supposedly the result of a fictitious Group 9...
 
 ---
 
@@ -58,11 +58,11 @@ In this exercise we will learn to use packages and write data to/from external s
 
 ---
 
-13. **Reopen the connection to your own database and read your table. Can you see the new data that has been added?**
+13. **Reopen the connection to your own database and read your table. Can you see that another group have added their data?** Alternatively, reopen the database, where you added your own data, and verify, that it has indeed been added.
 
 ---
 
-14. **If you have more time, try making an SQL-query to select only the data where shoe size is greater than 40**
+14. **If you have more time, try making an SQL-query to select only the data where shoe size is greater than 40. After doing this, remember to close the connection.**
 
 ---
 End of practical
