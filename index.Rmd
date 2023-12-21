@@ -191,8 +191,6 @@ Lecture presentation and exercises will be made available here. Download the fil
 <!--     - [some_data.xlsx](Contents/Material/Part H - Plots and reports/some_data.xlsx){target="_blank"} -->
 <!--     - [example.Rmd](Contents/Material/Part H - Plots and reports/example.Rmd){target="_blank"} -->
 
-<!-- All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste! -->
-
 # Further studies
 
 ## Column 1
